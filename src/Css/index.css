@@ -1,0 +1,14 @@
+table{
+    margin-top: 10px;
+    border-collapse: collapse;
+    border-spacing: 32px;
+}
+
+table tr {
+    border-bottom: 1px solid white;
+    padding:10px;
+    font-size: 18px;
+    font-weight: 300;
+   
+    
+}
