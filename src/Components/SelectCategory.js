@@ -33,6 +33,7 @@ export default function SelectCategory() {
           onChange={handleChange}
           size="small"
           style={{ width: "50%" }}
+          placeholder="Select Category"
         >
           {categories.length > 0 &&
             categories.map((category) => {

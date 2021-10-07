@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import SelectCategory from "../Components/SelectCategory";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import '../Css/index.css';
 export default function CalculaterForm() {
+
+  const [monthlyBudget, setMonthelyBudget] = useState('200')
+  const [leadValue, setLeadValue] = useState('10')
+
+  const handleMonthlyBudgetChage = (e)=>{
+    setMonthelyBudget(e.target.value)
+  }
+  const handleLeadvalueChage = (e)=>{
+    setLeadValue(e.target.value)
+  }
   return (
-    <div
-      style={{
-        backgroundColor: "#f5f5f5",
-        paddingLeft: 15,
-        paddingRight: 15,
-        paddingBottom: 5,
-      }}
-    >
+    <div className="headerDiv">
       <h1>
         <img
           src="./facebook.png"
@@ -29,11 +33,14 @@ export default function CalculaterForm() {
       </div>
       <hr />
       <div >
-        <p>2) Select Your Monthly Ad Budget </p>
+        <p>2) Select Your Monthly Ad Budget  <b>${monthlyBudget}</b> </p>
         <Box>
           <Slider
-            defaultValue={50}
+            defaultValue={200}
             aria-label="Default"
+            onChange={handleMonthlyBudgetChage}
+            min={200}
+            max={20000}
             valueLabelDisplay="auto"
             sx={{
               "& .MuiSlider-thumb": {
@@ -45,12 +52,15 @@ export default function CalculaterForm() {
       </div>
       <hr />
       <div>
-        <p>3) Average Sale Price/Lead Value</p>
+        <p>3) Average Sale Price/Lead Value <b>${leadValue}</b></p>
         <Box>
           <Slider
-            defaultValue={50}
+            defaultValue={10}
             aria-label="Default"
             valueLabelDisplay="auto"
+            onChange={handleLeadvalueChage}
+            min={10}
+            max={5000}
             sx={{
               "& .MuiSlider-thumb": {
                 borderRadius: "1px",
@@ -65,9 +75,8 @@ export default function CalculaterForm() {
           new lead?
         </p>
         <hr />
-        <div>
+        <div style={{marginTop:33,}}>
             <p>4) Free <a href="/service/social-media-marketing/">Facebook PPC Ad</a> Strategy Session</p>
-           
         </div>
       </div>
     </div>

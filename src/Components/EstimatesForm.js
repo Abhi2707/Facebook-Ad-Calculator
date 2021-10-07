@@ -3,9 +3,7 @@ import '../Css/index.css'
 
 export default function EstimateForm() {
   return (
-    <div
-      style={{ backgroundColor: "#e9ecea", paddingLeft: 15, paddingRight: 15 }}
-    >
+    <div className="headerEstimateDiv">
       <h1>Monthly PPC Ad Estimates</h1>
       <label>These values are set on your selected industry benchmark</label>
 
@@ -67,12 +65,13 @@ export default function EstimateForm() {
             <td>Leads/Sales Value</td>
             <td></td>
           </tr>
-          <tr>
-            <td >Potential Monthly ROI</td>
+          <tr style={{height:54, color:"white", backgroundColor:"#3b5997"}}>
+            <td  >Potential Monthly ROI</td>
             <td></td>
           </tr>
         </tbody>
       </table>
+
     </div>
   );
 }
