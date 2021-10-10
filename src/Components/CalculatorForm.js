@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext} from "react";
 import SelectCategory from "../Components/SelectCategory";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import '../Css/index.css';
+import { AdDataContext } from "../Context";
+
 export default function CalculaterForm() {
 
-  const [monthlyBudget, setMonthelyBudget] = useState('200')
-  const [leadValue, setLeadValue] = useState('10')
-
+  const {monthlyBudget, setMonthelyBudget , leadValue, setLeadValue } = useContext(AdDataContext)
+  
   const handleMonthlyBudgetChage = (e)=>{
     setMonthelyBudget(e.target.value)
   }
   const handleLeadvalueChage = (e)=>{
     setLeadValue(e.target.value)
   }
+
   return (
     <div className="headerDiv">
       <h1>
@@ -75,9 +77,10 @@ export default function CalculaterForm() {
           new lead?
         </p>
         <hr />
-        <div style={{marginTop:33,}}>
-            <p>4) Free <a href="/service/social-media-marketing/">Facebook PPC Ad</a> Strategy Session</p>
+        <div style={{marginTop:44}}>
+        <p>4) Took Reference From: <a href="https://www.pixaura.com/facebook-ads-ppc-calculator/">Pixaura.com</a></p>
         </div>
+        
       </div>
     </div>
   );

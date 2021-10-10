@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
+import {AdDataContext} from '../Context'
 
 export default function SelectCategory() {
-  const [age, setAge] = useState("");
+
+  const {categoryValue, setCategoryValue} =useContext(AdDataContext)
   const [categories, setCategories] = useState([]);
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setCategoryValue(event.target.value);
   };
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export default function SelectCategory() {
       <FormControl fullWidth>
         <Select
           id="demo-simple-select"
-          value={age}
+          value={categoryValue}
           onChange={handleChange}
           size="small"
           style={{ width: "50%" }}

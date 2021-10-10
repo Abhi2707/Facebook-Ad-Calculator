@@ -1,7 +1,11 @@
-import React from "react";
-import '../Css/index.css'
+import React, {useContext} from "react";
+import '../Css/index.css';
+import { AdDataContext } from "../Context";
 
 export default function EstimateForm() {
+  const {categoryValue, monthlyBudget, leadValue} =useContext(AdDataContext)
+
+  console.log("selecte", categoryValue)
   return (
     <div className="headerEstimateDiv">
       <h1>Monthly PPC Ad Estimates</h1>
@@ -14,7 +18,7 @@ export default function EstimateForm() {
               Monthly Ad Budget {" "}
             </td>
             <td width="45%">
-              $200
+              ${monthlyBudget}
             </td>
     
           </tr>
@@ -23,23 +27,23 @@ export default function EstimateForm() {
               Daily Ad Spend
             </td>
             <td>
-              $17
+              $ {{monthlyBudget}/30}
             </td>
           </tr>
 
           <tr>
             <td>CPC (Cost Per Click)</td>
-            <td>$18</td>
+            <td>${categoryValue.cpc}</td>
           </tr>
 
           <tr>
             <td>Impressions</td>
-            <td>322323</td>
+            <td>{categoryValue.population}</td>
           </tr>
 
           <tr>
             <td>CTR (Click Through Rate)</td>
-            <td></td>
+            <td>${categoryValue.ctr}</td>
           </tr>
 
           <tr>
@@ -63,7 +67,7 @@ export default function EstimateForm() {
           </tr>
           <tr>
             <td>Leads/Sales Value</td>
-            <td></td>
+            <td>${leadValue}</td>
           </tr>
           <tr style={{height:54, color:"white", backgroundColor:"#3b5997"}}>
             <td  >Potential Monthly ROI</td>
