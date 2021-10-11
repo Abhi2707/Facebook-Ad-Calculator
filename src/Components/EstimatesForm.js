@@ -5,12 +5,12 @@ import { AdDataContext } from "../Context";
 export default function EstimateForm() {
   const { categoryValue, monthlyBudget, leadValue } = useContext(AdDataContext);
 
-  console.log("selecte", categoryValue);
   const DailyBudget = (monthlyBudget / 30).toFixed(2);
   //chances to get conversion ,  (Considering on 1000 view 1.5 %)
 
-  const conversionValue = (20 * categoryValue.population) / 100;
-  console.log(DailyBudget);
+  const conversionValue = categoryValue.population
+    ? (20 * categoryValue.population) / 100
+    : "";
   return (
     <div className="headerEstimateDiv">
       <h1>Monthly PPC Ad Estimates</h1>
@@ -29,17 +29,25 @@ export default function EstimateForm() {
 
           <tr>
             <td>CPC (Cost Per Click)</td>
-            <td>${categoryValue.cpc}</td>
+            <td>
+              {categoryValue.cpc !== undefined ? `$ ${categoryValue.cpc}` : ""}
+            </td>
           </tr>
 
           <tr>
             <td>Impressions</td>
-            <td>{categoryValue.population}</td>
+            <td>
+              {categoryValue.population !== undefined
+                ? `$ ${categoryValue.population}`
+                : ""}
+            </td>
           </tr>
 
           <tr>
             <td>CTR (Click Through Rate)</td>
-            <td>${categoryValue.ctr}</td>
+            <td>
+              {categoryValue.ctr !== undefined ? `$ ${categoryValue.ctr}` : ""}
+            </td>
           </tr>
 
           <tr>
@@ -54,7 +62,7 @@ export default function EstimateForm() {
 
           <tr>
             <td>Leads/Sales/Inquiries</td>
-            <td>10</td>
+            <td>{categoryValue ? 10 : ""}</td>
           </tr>
 
           <tr>
@@ -69,7 +77,13 @@ export default function EstimateForm() {
             style={{ height: 54, color: "white", backgroundColor: "#3b5997" }}
           >
             <td>Potential Monthly ROI</td>
-            <td>${(monthlyBudget + 5000 + leadValue) * categoryValue.ctr}</td>
+            {categoryValue.ctr ? (
+              <td>
+                $ {(monthlyBudget + 5000 + leadValue) * categoryValue.ctr}
+              </td>
+            ) : (
+              <td></td>
+            )}
           </tr>
         </tbody>
       </table>

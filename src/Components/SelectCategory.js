@@ -18,7 +18,6 @@ export default function SelectCategory() {
     axios
       .get("https://facebook-backend-ads.herokuapp.com/api/categories")
       .then((res) => {
-        console.log(res);
         setCategories(res.data.categories);
       })
       .catch((err) => {
@@ -33,17 +32,18 @@ export default function SelectCategory() {
           value={categoryValue}
           onChange={handleChange}
           size="small"
+          defaultValue=""
           style={{ width: "50%" }}
           placeholder="Select Category"
         >
-          {categories.length > 0 &&
+          {categories.length > 0 ?
             categories.map((category) => {
               return (
                 <MenuItem key={category.id} value={category}>
                   {category.label}
                 </MenuItem>
               );
-            })}
+            }):<MenuItem disabled={true} value='NO_OPTIONS_LABEL'>No Category Available</MenuItem>}
         </Select>
       </FormControl>
     </Box>
