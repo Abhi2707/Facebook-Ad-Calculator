@@ -1,6 +1,30 @@
-# Getting Started with Create React App
+# Facebook Ad- Calculator 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Available Feature and Components . 
+
+#### 1- There is two Section i.e Facebook Ad Calculator Form and Estimate Result Form . 
+
+#### 2- User can Select Facebook Ad Category from the select box. 
+##### Fetching Category Records from Api i.e  https://facebook-backend-ads.herokuapp.com/api/categories
+
+#### 3- In Estimation From there will be changes according to selected value , Monthley Ad Budget and lead Value . 
+
+#### 4- Final Result Will be Calcute according to , Monthly Budget , Lead Value and Ctr. 
+
+
+## Demo 
+ ### https://facebook-ad-calculator.web.app/
+
+
+## Run Project 
+
+### Inorder to run project on your local machine 
+
+#### Run command yarn install or npm install 
+
+#### Then run yarn Start or npm start
+
+
 
 ## Available Scripts
 

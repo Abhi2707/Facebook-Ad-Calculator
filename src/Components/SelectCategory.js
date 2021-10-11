@@ -4,17 +4,16 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
-import {AdDataContext} from '../Context'
+import { AdDataContext } from "../Context";
 
 export default function SelectCategory() {
-
-  const {categoryValue, setCategoryValue} =useContext(AdDataContext)
+  const { categoryValue, setCategoryValue } = useContext(AdDataContext);
   const [categories, setCategories] = useState([]);
 
   const handleChange = (event) => {
     setCategoryValue(event.target.value);
   };
-
+  //Fetching Facebook Ad Category
   useEffect(() => {
     axios
       .get("https://facebook-backend-ads.herokuapp.com/api/categories")

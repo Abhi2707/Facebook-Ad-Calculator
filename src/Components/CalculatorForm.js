@@ -1,20 +1,20 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import SelectCategory from "../Components/SelectCategory";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
-import '../Css/index.css';
+import "../Css/index.css";
 import { AdDataContext } from "../Context";
-
+//Fields To get data in order to calculate ROI
 export default function CalculaterForm() {
+  const { monthlyBudget, setMonthelyBudget, leadValue, setLeadValue } =
+    useContext(AdDataContext);
 
-  const {monthlyBudget, setMonthelyBudget , leadValue, setLeadValue } = useContext(AdDataContext)
-  
-  const handleMonthlyBudgetChage = (e)=>{
-    setMonthelyBudget(e.target.value)
-  }
-  const handleLeadvalueChage = (e)=>{
-    setLeadValue(e.target.value)
-  }
+  const handleMonthlyBudgetChage = (e) => {
+    setMonthelyBudget(e.target.value);
+  };
+  const handleLeadvalueChage = (e) => {
+    setLeadValue(e.target.value);
+  };
 
   return (
     <div className="headerDiv">
@@ -30,12 +30,17 @@ export default function CalculaterForm() {
       </h1>
       <div style={{ paddingBottom: 15 }}>
         <p>1) Selcet Your Industry</p>
-      
-      <SelectCategory />
+
+        {/* Component to select Facebook Ad Category  */}
+
+        <SelectCategory />
       </div>
       <hr />
-      <div >
-        <p>2) Select Your Monthly Ad Budget  <b>${monthlyBudget}</b> </p>
+      {/* To Select Montely Ad Budget Slider Component */}
+      <div>
+        <p>
+          2) Select Your Monthly Ad Budget <b>${monthlyBudget}</b>{" "}
+        </p>
         <Box>
           <Slider
             defaultValue={200}
@@ -54,7 +59,9 @@ export default function CalculaterForm() {
       </div>
       <hr />
       <div>
-        <p>3) Average Sale Price/Lead Value <b>${leadValue}</b></p>
+        <p>
+          3) Average Sale Price/Lead Value <b>${leadValue}</b>
+        </p>
         <Box>
           <Slider
             defaultValue={10}
@@ -77,10 +84,14 @@ export default function CalculaterForm() {
           new lead?
         </p>
         <hr />
-        <div style={{marginTop:44}}>
-        <p>4) Took Reference From: <a href="https://www.pixaura.com/facebook-ads-ppc-calculator/">Pixaura.com</a></p>
+        <div style={{ marginTop: 33 }}>
+          <p>
+            4) Took Reference From:{" "}
+            <a href="https://www.pixaura.com/facebook-ads-ppc-calculator/">
+              Pixaura.com
+            </a>
+          </p>
         </div>
-        
       </div>
     </div>
   );
