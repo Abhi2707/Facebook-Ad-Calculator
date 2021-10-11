@@ -7,9 +7,9 @@
 #### 2- User can Select Facebook Ad Category from the select box. 
 ##### Fetching Category Records from Api i.e  https://facebook-backend-ads.herokuapp.com/api/categories
 
-#### 3- In Estimation From there will be changes according to selected value , Monthley Ad Budget and lead Value . 
+#### 3- In Estimation Form there will be changes according to selected value , Monthly Ad Budget and lead Value . 
 
-#### 4- Final Result Will be Calcute according to , Monthly Budget , Lead Value and Ctr. 
+#### 4- Final Result Will be Calculate according to , Monthly Budget , Lead Value and Ctr. 
 
 
 ## Demo 
